@@ -17,6 +17,7 @@ namespace Day_1_Report_Repair
                 splitted_values[i++] = Convert.ToInt32(line);
             }
 
+            //OPTIMIZE THIS
             foreach (int j in splitted_values)
             {
                 foreach (int z in splitted_values)
