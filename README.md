@@ -1,1 +1,1 @@
-# advent-of-code-20
+# advent-of-code-20 solutions
