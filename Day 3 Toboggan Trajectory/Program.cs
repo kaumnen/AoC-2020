@@ -7,25 +7,51 @@ namespace Day_3_Toboggan_Trajectory
         static void Main(string[] args)
         {
             string line;
-            int indexOfPointer = 0;
-            int result = 0;
+            int[] moveToTheRight = new[] { 1, 3, 5, 7, 1 };   
+            int[] result = new int[5];
+            long submission = 1;
 
-            System.IO.StreamReader file = new System.IO.StreamReader(@"C:\Users\exnatz\Desktop\advent-of-code-20\Day 3 Toboggan Trajectory\input.txt");
-
-            while ((line = file.ReadLine()) != null)
+            for (int i = 0; i < moveToTheRight.Length; i++)
             {
+                int pointer = 0;
+                int j = 0;
 
-                if (line[indexOfPointer] == '#')
+                System.IO.StreamReader file = new System.IO.StreamReader(@"C:\Users\exnatz\Desktop\advent-of-code-20\Day 3 Toboggan Trajectory\input.txt");
+
+                while ((line = file.ReadLine()) != null)
                 {
-                    result += 1;
+                    if (i == moveToTheRight.Length - 1)
+                    {
+                        if (j % 2 == 0)
+                        {
+                            if (line[pointer] == '#')
+                            {
+                                result[i] += 1;
+                            }
+                            pointer = (pointer + 1) % line.Length;
+                            j += 1;
+                        }
+
+                        else
+                        {
+                            j += 1;
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        if (line[pointer] == '#')
+                        {
+                            result[i] += 1;
+                        }
+                        pointer = (pointer + moveToTheRight[i]) % line.Length;
+                    }
                 }
-                //going right and checking if index is out of bounds
-                indexOfPointer = (indexOfPointer + 3) % line.Length;
-
-
-             }
-
-            Console.WriteLine(result);
+                Console.WriteLine(submission);
+                submission *= result[i];
+                Console.WriteLine($"result of slope: {result[i]}, multiplied result: {submission}");
+                
+            }
         }
     }
 }
