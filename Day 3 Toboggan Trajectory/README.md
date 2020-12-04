@@ -1,4 +1,5 @@
-﻿--- Day 3: Toboggan Trajectory ---
+﻿**--- Day 3: Toboggan Trajectory ---**
+
 With the toboggan login problems resolved, you set off toward the airport. While travel by toboggan might be easy, it's certainly not safe: there's very minimal steering and the area is covered in trees. You'll need to see which angles will take you near the fewest trees.
 
 Due to the local geology, trees in this area only grow on exact integer coordinates in a grid. You make a map (your puzzle input) of the open squares (.) and trees (#) you can see. For example:
@@ -51,7 +52,7 @@ The locations you'd check in the above example are marked here with O where ther
 ```
 In this example, traversing the map using this slope would cause you to encounter 7 trees.
 
-Starting at the top-left corner of your map and following a slope of right 3 and down 1, how many trees would you encounter?
+**Starting at the top-left corner of your map and following a slope of right 3 and down 1, how many trees would you encounter?**
 
 --- Part Two ---
 Time to check the rest of the slopes - you need to minimize the probability of a sudden arboreal stop, after all.
@@ -66,4 +67,4 @@ Right 1, down 2.
 ```
 In the above example, these slopes would find 2, 7, 3, 4, and 2 tree(s) respectively; multiplied together, these produce the answer 336.
 
-What do you get if you multiply together the number of trees encountered on each of the listed slopes?
+**What do you get if you multiply together the number of trees encountered on each of the listed slopes?**
