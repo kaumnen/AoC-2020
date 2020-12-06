@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Day_6_Custom_Customs
 {
@@ -9,19 +10,33 @@ namespace Day_6_Custom_Customs
             System.IO.StreamReader file = new System.IO.StreamReader(@"C:\Users\exnatz\Desktop\advent-of-code-20\Day 6 Custom Customs\input.txt");
 
             string[] answerGroups = file.ReadToEnd().Split("\r\n\r\n");
-            char[] letters = new[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+
             int result = 0;
+            bool sameAnswer = false;
 
             foreach (string answers in answerGroups)
             {
-                foreach (char i in letters)
+                //take all letters from first person
+                foreach (char answer in answers.Split("\r\n")[0])
                 {
-                    if (answers.Contains(i))
+                    //cycle through all persons to see if all of them got that answer
+                    foreach (string ans in answers.Split("\r\n"))
                     {
-                        result += 1;
-                    }
-                }
 
+                        if (ans.Contains(answer))
+                        {
+                            sameAnswer = true;
+                        }
+                        else
+                        {
+                            sameAnswer = false;
+                            break;
+                        }  
+                    }
+
+                    if (sameAnswer)
+                        result += 1;
+                }
             }
 
             Console.WriteLine(result);
